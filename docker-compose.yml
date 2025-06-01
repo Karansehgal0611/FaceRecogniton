@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  face-recognition:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: face-recognition-app
+    
+    # Enable GUI applications
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - QT_QPA_PLATFORM=xcb
+    
+    # Mount X11 socket and other necessary files for GUI
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ~/.Xauthority:/home/faceuser/.Xauthority:rw
+      - ./known_faces:/app/known_faces  # Persist saved faces
+    
+    # Access to camera and audio devices
+    devices:
+      - /dev/video0:/dev/video1  # Webcam
+    
+    # Network mode for X11 forwarding
+    network_mode: host
+    
+    # Interactive mode
+    stdin_open: true
+    tty: true
+    privileged: true          
+    
+    # Restart policy
+    restart: unless-stopped
