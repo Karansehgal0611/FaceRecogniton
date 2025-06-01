@@ -39,15 +39,15 @@ python face_recognition_system.py
 
 
 ## 🔧 Configuration
--Place known faces (reference images) in the known_faces/ directory.
--Update the face_recognition_system.py script as needed for your use case.
+- Place known faces (reference images) in the known_faces/ directory.
+- Update the face_recognition_system.py script as needed for your use case.
 
 ## 🛠️ Technologies Used
--Python 3
--OpenCV
--face_recognition
--Docker
--Docker Compose
+- Python 3
+- OpenCV
+- face_recognition
+- Docker
+- Docker Compose
 
 ## 📘 Learning Notes
 This repository includes a PDF file named Docker Documentation.pdf, which contains my personal notes and learning materials about Docker
